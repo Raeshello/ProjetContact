@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify form</title>
+</head>
+<body>
+<button th:onclick="|window.location.href='/editContact'|">Afficher tous les contacts</button>
+<table>
+    <tr th:each="contact : ${listContact}">
+        <form th:object="${contactForm}" method="post">
+            <td th:field="id" th:text="${contact.ID_Contact}" style="visibility: hidden"></td>
+            <td th:field="nom" th:text="${contact.nom}"></td>
+            <td>|</td>
+            <td><input th:onclick="|window.location.href='/updateContact'|">Modifier Contact</input></td>
+        </form>
+    </tr>
+</table>
+</body>
+</html>

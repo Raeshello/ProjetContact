@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Form</title>
+    <script>
+        function addAdressePostale() {
+            var addressesDiv = document.getElementById("adrPostale").childNodes[1];
+            var div = document.createElement("div");
+            var input = document.createElement("input");
+            input.setAttribute("type", "text");
+            input.setAttribute("name", "postale");
+            div.appendChild(input);
+            addressesDiv.appendChild(div);
+        }
+
+        function addAdresseEmail() {
+            var emailsDiv = document.getElementById("adrMail").childNodes[1];
+            var div = document.createElement("div");
+            var input = document.createElement("input");
+            input.setAttribute("type", "email");
+            input.setAttribute("name", "mail");
+            div.appendChild(input);
+            emailsDiv.appendChild(div);
+        }
+    </script>
+</head>
+<body>
+Add someone !
+
+<form th:action="@{/addContact}" th:object="${contactForm}" method="post">
+
+    <table id="add-Contact">
+        <tr>
+            <td>Nom:</td>
+            <td><input type="text" name="nom" /></td>
+        </tr>
+    </table>
+    <div id="adrPostale">
+        Adresse Postales :
+        <input type="text" name="postale">
+    </div>
+
+    <div id="adrMail">
+        Adresse Postales :
+        <input type="email" name="mail">
+    </div>
+    <input type="button" value="Ajouter une adresse" onclick="addAdressePostale()">
+    <input type="button" value="Ajouter une adresse email" onclick="addAdresseEmail()">
+    <button type="submit">Ajout</button>
+</form>
+</body>
+</html>

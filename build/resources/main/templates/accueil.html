@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+</head>
+<body>
+Accueil
+<button th:onclick="|window.location.href='/go-Add'|">Go to Add</button>
+<button th:onClick="|window.location.href='/go-Del'|">Go to Delete</button>
+<button th:onClick="|window.location.href='/go-Mod'|">Go to Modify</button>
+<br>
+<button th:onclick="|window.location.href='/listingContact'|">Afficher Liste Contact</button>
+<table>
+    <tr th:each="contact : ${contacts}">
+        <td th:text="${contact.toString()}"></td>
+    </tr>
+</table>
+</body>
+</html>
